@@ -1,0 +1,130 @@
+<?xml version="1.0"?>
+
+<project name="cucumber" default="build">
+	<property environment="env" />
+
+	<property file="build.${user.name}.properties" />
+	<property file="build.${env.COMPUTERNAME}.properties" />
+	<property file="build.${env.HOST}.properties" />
+	<property file="build.${env.HOSTNAME}.properties" />
+	<property file="build.properties" />
+
+	<path id="project.classpath">
+		<pathelement path="project/classes" />
+		<fileset dir="lib" includes="*.jar" />
+	</path>
+
+	<taskdef classpathref="project.classpath" resource="net/sf/antcontrib/antlib.xml" />
+
+	<macrodef name="clean">
+		<sequential>
+			<delete dir="project/classes/" />
+		</sequential>
+	</macrodef>
+
+	<macrodef name="compile">
+		<sequential>
+			<mkdir dir="project/classes/" />
+
+			<javac
+				classpathref="project.classpath"
+				destdir="project/classes/"
+				includeantruntime="false"
+				srcdir="project/src/"
+			/>
+
+			<copy todir="project/classes/">
+				<fileset dir="project/src/" includes="*.properties" />
+			</copy>
+		</sequential>
+	</macrodef>
+
+	<macrodef name="run-cmd">
+		<attribute name="test.file" />
+		<attribute name="test.name" />
+
+		<sequential>
+			<local name="Feature" />
+
+			<property file="@{test.file}" />
+
+			<if>
+				<equals arg1="${Feature}" arg2="" />
+				<then>
+					<fail message="Please set a value to the Feature" />
+				</then>
+			</if>
+
+			<local name="test.feature" />
+			<local name="test.name" />
+
+			<property name="test.feature" value="${Feature}" />
+
+			<propertyregex
+				global="true"
+				input="${Feature}"
+				override="true"
+				property="test.feature"
+				regexp="\s+"
+				replace="_"
+			/>
+
+			<property name="test.name" value="@{test.name}" />
+
+			<propertyregex
+				global="true"
+				input="@{test.name}"
+				override="true"
+				property="test.name"
+				regexp="\s+"
+				replace="_"
+			/>
+
+			<echo>TEST-${test.feature}-${test.name}.xml</echo>
+
+			<java
+				classname="cucumber.api.cli.Main"
+				classpathref="project.classpath"
+				fork="true"
+				newenvironment="true"
+			>
+				<arg value="--glue" />
+				<arg value="com.liferay.cucumber" />
+				<arg value="--name" />
+				<arg value="@{test.name}" />
+				<arg value="--plugin" />
+				<arg value="pretty" />
+				<arg value="--plugin" />
+				<arg value="html:results/html/" />
+				<arg value="--plugin" />
+				<arg value="json:results/json/test.json" />
+				<arg value="--plugin" />
+				<arg value="junit:results/junit/TEST-${test.feature}-${test.name}.xml" />
+				<arg value="--snippets" />
+				<arg value="camelcase" />
+				<arg value="--strict" />
+				<arg value="@{test.file}" />
+			</java>
+		</sequential>
+	</macrodef>
+
+	<macrodef name="run-junit">
+		<sequential>
+			<junit printsummary="yes" failureproperty="junit.failure" showoutput="true">
+				<classpath refid="project.classpath" />
+				<test name="com.liferay.cucumber.CucumberTest" haltonfailure="no" outfile="cucumber-test" />
+			</junit>
+		</sequential>
+	</macrodef>
+
+	<target name="build">
+		<clean />
+
+		<compile />
+
+		<run-cmd
+			test.file="features/test.feature"
+			test.name="Test1"
+		/>
+	</target>
+</project>
