@@ -108,15 +108,6 @@
 		</sequential>
 	</macrodef>
 
-	<macrodef name="run-junit">
-		<sequential>
-			<junit printsummary="yes" failureproperty="junit.failure" showoutput="true">
-				<classpath refid="project.classpath" />
-				<test name="com.liferay.cucumber.CucumberTest" haltonfailure="no" outfile="cucumber-test" />
-			</junit>
-		</sequential>
-	</macrodef>
-
 	<target name="build">
 		<clean />
 
