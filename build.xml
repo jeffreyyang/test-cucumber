@@ -28,6 +28,7 @@
 
 			<javac
 				classpathref="project.classpath"
+				debug="true"
 				destdir="project/classes/"
 				includeantruntime="false"
 				srcdir="project/src/"

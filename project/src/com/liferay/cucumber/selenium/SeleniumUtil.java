@@ -44,7 +44,7 @@ public class SeleniumUtil extends PropsValues {
 	}
 
 	private void _startSelenium() {
-		String portalURL = PORTAL_URL;
+		String portalURL = "http://www.google.com/";
 
 		WebDriverUtil.startWebDriver();
 
