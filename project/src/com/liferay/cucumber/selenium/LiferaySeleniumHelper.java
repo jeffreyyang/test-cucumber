@@ -12,14 +12,14 @@
  * details.
  */
 
-package com.liferay.poshi.runner.selenium;
+package com.liferay.cucumber.selenium;
 
-import com.liferay.poshi.runner.util.FileUtil;
-import com.liferay.poshi.runner.util.GetterUtil;
-import com.liferay.poshi.runner.util.OSDetector;
-import com.liferay.poshi.runner.util.PropsValues;
-import com.liferay.poshi.runner.util.StringUtil;
-import com.liferay.poshi.runner.util.Validator;
+import com.liferay.cucumber.util.FileUtil;
+import com.liferay.cucumber.util.GetterUtil;
+import com.liferay.cucumber.util.OSDetector;
+import com.liferay.cucumber.util.PropsValues;
+import com.liferay.cucumber.util.StringUtil;
+import com.liferay.cucumber.util.Validator;
 
 import java.awt.Rectangle;
 import java.awt.Robot;

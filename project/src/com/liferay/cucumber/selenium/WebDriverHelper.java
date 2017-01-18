@@ -12,14 +12,14 @@
  * details.
  */
 
-package com.liferay.poshi.runner.selenium;
+package com.liferay.cucumber.selenium;
 
-import com.liferay.poshi.runner.util.CharPool;
-import com.liferay.poshi.runner.util.FileUtil;
-import com.liferay.poshi.runner.util.GetterUtil;
-import com.liferay.poshi.runner.util.HtmlUtil;
-import com.liferay.poshi.runner.util.PropsValues;
-import com.liferay.poshi.runner.util.Validator;
+import com.liferay.cucumber.util.CharPool;
+import com.liferay.cucumber.util.FileUtil;
+import com.liferay.cucumber.util.GetterUtil;
+import com.liferay.cucumber.util.HtmlUtil;
+import com.liferay.cucumber.util.PropsValues;
+import com.liferay.cucumber.util.Validator;
 
 import java.util.ArrayList;
 import java.util.Arrays;

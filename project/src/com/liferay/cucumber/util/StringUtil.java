@@ -12,7 +12,7 @@
  * details.
  */
 
-package com.liferay.poshi.runner.util;
+package com.liferay.cucumber.util;
 
 import org.apache.commons.lang.StringUtils;
 

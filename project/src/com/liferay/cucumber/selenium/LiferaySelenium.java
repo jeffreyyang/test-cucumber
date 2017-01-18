@@ -12,12 +12,11 @@
  * details.
  */
 
-package com.liferay.poshi.runner.selenium;
+package com.liferay.cucumber.selenium;
 
 /**
  * @author Brian Wing Shun Chan
  */
-@SuppressWarnings("deprecation")
 public interface LiferaySelenium {
 
 	public void addSelection(String locator, String optionLocator);

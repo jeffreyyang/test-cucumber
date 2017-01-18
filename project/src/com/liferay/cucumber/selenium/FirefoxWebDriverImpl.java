@@ -12,7 +12,7 @@
  * details.
  */
 
-package com.liferay.poshi.runner.selenium;
+package com.liferay.cucumber.selenium;
 
 import org.openqa.selenium.WebDriver;
 

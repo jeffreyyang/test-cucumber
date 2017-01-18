@@ -115,8 +115,8 @@
 		<compile />
 
 		<run-cmd
-			test.file="features/test.feature"
-			test.name="Test1"
+			test.file="${test.feature}"
+			test.name="${test.name}"
 		/>
 	</target>
 </project>

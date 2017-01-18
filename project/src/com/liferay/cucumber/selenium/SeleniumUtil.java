@@ -12,9 +12,9 @@
  * details.
  */
 
-package com.liferay.poshi.runner.selenium;
+package com.liferay.cucumber.selenium;
 
-import com.liferay.poshi.runner.util.PropsValues;
+import com.liferay.cucumber.util.PropsValues;
 
 import org.openqa.selenium.WebDriver;
 

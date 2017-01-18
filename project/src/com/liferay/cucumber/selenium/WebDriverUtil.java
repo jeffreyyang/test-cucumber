@@ -12,13 +12,13 @@
  * details.
  */
 
-package com.liferay.poshi.runner.selenium;
+package com.liferay.cucumber.selenium;
 
-import com.liferay.poshi.runner.util.OSDetector;
-import com.liferay.poshi.runner.util.PropsValues;
-import com.liferay.poshi.runner.util.StringPool;
-import com.liferay.poshi.runner.util.StringUtil;
-import com.liferay.poshi.runner.util.Validator;
+import com.liferay.cucumber.util.OSDetector;
+import com.liferay.cucumber.util.PropsValues;
+import com.liferay.cucumber.util.StringPool;
+import com.liferay.cucumber.util.StringUtil;
+import com.liferay.cucumber.util.Validator;
 
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.ios.IOSDriver;

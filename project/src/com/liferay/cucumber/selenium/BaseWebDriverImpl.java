@@ -12,30 +12,26 @@
  * details.
  */
 
-package com.liferay.poshi.runner.selenium;
+package com.liferay.cucumber.selenium;
 
-import com.deque.axe.AXE;
-
-import com.liferay.poshi.runner.util.FileUtil;
-import com.liferay.poshi.runner.util.GetterUtil;
-import com.liferay.poshi.runner.util.HtmlUtil;
-import com.liferay.poshi.runner.util.OSDetector;
-import com.liferay.poshi.runner.util.PropsValues;
-import com.liferay.poshi.runner.util.StringPool;
-import com.liferay.poshi.runner.util.StringUtil;
-import com.liferay.poshi.runner.util.Validator;
+import com.liferay.cucumber.util.FileUtil;
+import com.liferay.cucumber.util.GetterUtil;
+import com.liferay.cucumber.util.HtmlUtil;
+import com.liferay.cucumber.util.OSDetector;
+import com.liferay.cucumber.util.PropsValues;
+import com.liferay.cucumber.util.StringPool;
+import com.liferay.cucumber.util.StringUtil;
+import com.liferay.cucumber.util.Validator;
 
 import java.awt.Robot;
 import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.StringReader;
 
-import java.net.URI;
 import java.net.URL;
 
 import java.util.Calendar;
@@ -46,12 +42,6 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 import java.util.TreeSet;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.TimeoutException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -2405,8 +2395,6 @@ public abstract class BaseWebDriverImpl implements LiferaySelenium, WebDriver {
 	private static final String _TEST_DEPENDENCIES_DIR_NAME =
 		PropsValues.TEST_DEPENDENCIES_DIR_NAME;
 
-	private final Pattern _aceEditorPattern = Pattern.compile(
-		"\\(|\\$\\{line\\.separator\\}");
 	private String _clipBoard = "";
 	private final Map<String, String> _keysSpecialChars = new HashMap<>();
 	private final String _outputDirName;
