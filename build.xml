@@ -106,6 +106,17 @@
 				<arg value="--strict" />
 				<arg value="@{test.file}" />
 			</java>
+
+			<if>
+				<available file="results/html/index.html" />
+				<then>
+					<exec executable="cmd">
+						<arg value="/c"/>
+						<arg value="firefox"/>
+						<arg value="results/html/index.html"/>
+					</exec>
+				</then>
+			</if>
 		</sequential>
 	</macrodef>
 
@@ -118,5 +129,7 @@
 			test.file="${test.feature}"
 			test.name="${test.name}"
 		/>
+
+
 	</target>
 </project>
