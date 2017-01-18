@@ -113,7 +113,7 @@ public abstract class BaseWebDriverImpl implements LiferaySelenium, WebDriver {
 
 		WebDriver.Window window = options.window();
 
-		window.setSize(new Dimension(1280, 1040));
+		window.setSize(new Dimension(1300, 768));
 
 		webDriver.get(browserURL);
 	}
@@ -2286,8 +2286,6 @@ public abstract class BaseWebDriverImpl implements LiferaySelenium, WebDriver {
 	@Override
 	public void waitForVisible(String locator) throws Exception {
 		for (int second = 0;; second++) {
-			System.out.println(PropsValues.TIMEOUT_EXPLICIT_WAIT);
-			System.out.println(locator);
 			if (second >= PropsValues.TIMEOUT_EXPLICIT_WAIT) {
 				assertVisible(locator);
 			}

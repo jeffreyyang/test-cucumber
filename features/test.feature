@@ -1,7 +1,6 @@
 Feature: Feature 1.2
 
 	Scenario: Test1
-		Given I start selenium
 		When I navigate to "http://www.liferay.com/"
 		And I click the "Product" link
 		Then I stop selenium
@@ -17,7 +16,6 @@ Feature: Feature 1.2
 		Given I have 7 cukes in my belly
 
 	Scenario: Login
-		Given I start selenium
 		Given I navigate to "http://localhost:8080"
 		When I click the "Sign In" link
 		And I enter "test@liferay.com" in the "Email Address" field

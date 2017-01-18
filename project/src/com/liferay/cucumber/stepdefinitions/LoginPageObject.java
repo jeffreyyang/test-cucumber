@@ -34,9 +34,13 @@ public class LoginPageObject extends BasePageObject {
 	}
 
 	public void logout() throws Exception {
-		String userAvatarImage = "//*[@data-qa-id='openUserMenu'] | //span[@class='user-avatar-image']";
+		String userAvatarImage =
+			"//*[@data-qa-id='openUserMenu'] | " +
+				"//span[@class='user-avatar-image']";
 
-		String productMenuTabExpanded = "//*[@data-qa-id='productMenuUserPanelCategory'][@aria-expanded='true']";
+		String productMenuTabExpanded =
+			"//*[@data-qa-id='productMenuUserPanelCategory']" +
+				"[@aria-expanded='true']";
 
 		click(userAvatarImage);
 

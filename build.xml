@@ -82,7 +82,7 @@
 			/>
 
 			<java
-				classname="cucumber.api.cli.Main"
+				classname="com.liferay.cucumber.CucumberTest"
 				classpathref="project.classpath"
 				fork="true"
 				newenvironment="true"
@@ -116,7 +116,12 @@
 			test.file="${test.feature}"
 			test.name="${test.name}"
 		/>
+	</target>
 
-
+	<target name="run">
+		<run-cmd
+			test.file="${test.feature}"
+			test.name="${test.name}"
+		/>
 	</target>
 </project>
