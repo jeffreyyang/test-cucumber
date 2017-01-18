@@ -7,7 +7,8 @@ Feature: Feature 1.2
 		Then I stop selenium
 
 	Scenario: Test2
-		Given I have 5 cukes in my belly
-
-	Scenario: Test3
-		Given I have 7 cukes in my belly
+		Given I have 5 cukes in my belly:
+		  | name   | email              | twitter         |
+		  | Aslak  | aslak@cucumber.io  | @aslak_hellesoy |
+		  | Julien | julien@cucumber.io | @jbpros         |
+		  | Matt   | matt@cucumber.io   | @mattwynne      |
