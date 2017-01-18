@@ -22,6 +22,7 @@ Feature: Feature 1.2
 		When I click the "Sign In" link
 		And I enter "test@liferay.com" in the "Email Address" field
 		And I enter "test" in the "Password" field
+		And I click the "Sign In" button
 		Then I logout
 
 	Scenario: Portal Smoke

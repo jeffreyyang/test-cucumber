@@ -23,8 +23,14 @@ import com.liferay.cucumber.selenium.SeleniumUtil;
  */
 public class BasePageObject {
 
+	public void click(String locator) throws Exception {
+		selenium.waitForVisible(locator);
+
+		selenium.click(locator);
+	}
+
 	public void clickButton(String button) throws Exception {
-		_click(".//button[contains(.,'" + button + "')]");
+		click("//button[contains(.,'" + button + "')]");
 	}
 
 	public void clickLink(String link) throws Exception {
@@ -45,14 +51,12 @@ public class BasePageObject {
 		SeleniumUtil.stopSelenium();
 	}
 
-	public void typeField(String field, String text) {
-		selenium.type(".//div[label[contains(.,'" + field + "')]]/input", text);
-	}
+	public void typeField(String field, String text) throws Exception {
+		String locator = "//div[label[contains(.,'" + field + "')]]/input";
 
-	private void _click(String locator) throws Exception {
 		selenium.waitForVisible(locator);
 
-		selenium.click(locator);
+		selenium.type(locator , text);
 	}
 
 	protected LiferaySelenium selenium;

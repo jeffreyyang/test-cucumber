@@ -14,26 +14,14 @@
 
 package com.liferay.cucumber.selenium;
 
-import com.liferay.cucumber.util.FileUtil;
-import com.liferay.cucumber.util.GetterUtil;
-import com.liferay.cucumber.util.HtmlUtil;
-import com.liferay.cucumber.util.OSDetector;
-import com.liferay.cucumber.util.PropsValues;
-import com.liferay.cucumber.util.StringPool;
-import com.liferay.cucumber.util.StringUtil;
-import com.liferay.cucumber.util.Validator;
-
 import java.awt.Robot;
 import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
-
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.StringReader;
-
 import java.net.URL;
-
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
@@ -52,8 +40,6 @@ import javax.xml.xpath.XPathConstants;
 import javax.xml.xpath.XPathExpression;
 import javax.xml.xpath.XPathFactory;
 
-import junit.framework.TestCase;
-
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
@@ -66,13 +52,22 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.internal.WrapsDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import org.w3c.dom.Document;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
-
 import org.xml.sax.InputSource;
+
+import com.liferay.cucumber.util.FileUtil;
+import com.liferay.cucumber.util.GetterUtil;
+import com.liferay.cucumber.util.HtmlUtil;
+import com.liferay.cucumber.util.OSDetector;
+import com.liferay.cucumber.util.PropsValues;
+import com.liferay.cucumber.util.StringPool;
+import com.liferay.cucumber.util.StringUtil;
+import com.liferay.cucumber.util.Validator;
+
+import junit.framework.TestCase;
 
 /**
  * @author Brian Wing Shun Chan
@@ -1103,6 +1098,7 @@ public abstract class BaseWebDriverImpl implements LiferaySelenium, WebDriver {
 
 	@Override
 	public boolean isElementPresent(String locator) {
+		System.out.println("HERE IS THE LOCATORRRRRRR: " + locator);
 		return WebDriverHelper.isElementPresent(this, locator);
 	}
 
@@ -2290,6 +2286,8 @@ public abstract class BaseWebDriverImpl implements LiferaySelenium, WebDriver {
 	@Override
 	public void waitForVisible(String locator) throws Exception {
 		for (int second = 0;; second++) {
+			System.out.println(PropsValues.TIMEOUT_EXPLICIT_WAIT);
+			System.out.println(locator);
 			if (second >= PropsValues.TIMEOUT_EXPLICIT_WAIT) {
 				assertVisible(locator);
 			}

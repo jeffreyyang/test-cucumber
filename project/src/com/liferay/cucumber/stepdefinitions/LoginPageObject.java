@@ -32,9 +32,16 @@ public class LoginPageObject extends BasePageObject {
 	}
 
 	public void logout() throws Exception {
-		click(".//span[@class='user-avatar-image']");
-		selenium.waitForVisible(".//div[contains(@class,'collapse in')]");
-		clickLink("Sign Out");
+		open("http://localhost:8080/");
+		/*String userAvatarImage = "//*[@data-qa-id='openUserMenu']";
+
+		String productMenuTabExpanded = "//*[@data-qa-id='productMenuUserPanelCategory'][@aria-expanded='true']";
+
+		click(userAvatarImage);
+
+		selenium.waitForVisible(productMenuTabExpanded);
+
+		clickLink("Sign Out");*/
 	}
 
 }

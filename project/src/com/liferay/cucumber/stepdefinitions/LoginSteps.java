@@ -14,6 +14,7 @@
 
 package com.liferay.cucumber.stepdefinitions;
 
+import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
 /**
@@ -27,7 +28,7 @@ public class LoginSteps {
         _loginPageObject.login(emailAddress, password);
     }
 
-    @When("^I logout$")
+    @Then("^I logout$")
     public void logout() throws Throwable {
     	_loginPageObject.logout();
     }
