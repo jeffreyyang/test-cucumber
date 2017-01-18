@@ -23,6 +23,10 @@ import com.liferay.cucumber.selenium.SeleniumUtil;
  */
 public class BasePageObject {
 
+	public BasePageObject() {
+		selenium = SeleniumUtil.getSelenium();
+	}
+
 	public void click(String locator) throws Exception {
 		selenium.waitForVisible(locator);
 
@@ -42,8 +46,6 @@ public class BasePageObject {
 	}
 
 	public void startSelenium() throws Exception {
-		SeleniumUtil.startSelenium();
-
 		selenium = SeleniumUtil.getSelenium();
 	}
 

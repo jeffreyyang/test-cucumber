@@ -14,6 +14,8 @@
 
 package com.liferay.cucumber.stepdefinitions;
 
+import com.liferay.cucumber.selenium.SeleniumUtil;
+
 /**
  * @author Michael Hashimoto
  * @author Brian Chiu
@@ -32,8 +34,7 @@ public class LoginPageObject extends BasePageObject {
 	}
 
 	public void logout() throws Exception {
-		open("http://localhost:8080/");
-		/*String userAvatarImage = "//*[@data-qa-id='openUserMenu']";
+		String userAvatarImage = "//*[@data-qa-id='openUserMenu'] | //span[@class='user-avatar-image']";
 
 		String productMenuTabExpanded = "//*[@data-qa-id='productMenuUserPanelCategory'][@aria-expanded='true']";
 
@@ -41,7 +42,7 @@ public class LoginPageObject extends BasePageObject {
 
 		selenium.waitForVisible(productMenuTabExpanded);
 
-		clickLink("Sign Out");*/
+		clickLink("Sign Out");
 	}
 
 }

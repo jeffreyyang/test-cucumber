@@ -24,12 +24,12 @@ import cucumber.api.java.en.When;
 public class LoginSteps {
 
     @When("^I login as \"([^\"]*)\" with password \"([^\"]*)\"$")
-    public void login(String emailAddress, String password) throws Throwable {
+    public void login(String emailAddress, String password) throws Exception {
         _loginPageObject.login(emailAddress, password);
     }
 
     @Then("^I logout$")
-    public void logout() throws Throwable {
+    public void logout() throws Exception {
     	_loginPageObject.logout();
     }
 
