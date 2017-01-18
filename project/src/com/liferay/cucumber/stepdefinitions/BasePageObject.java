@@ -28,7 +28,7 @@ public class BasePageObject {
 	}
 
 	public void clickLink(String link) throws Exception {
-		_click("//a[contains(.,'" + link + "')]");
+		click("//a[contains(.,'" + link + "')]");
 	}
 
 	public void open(String url) throws Exception {

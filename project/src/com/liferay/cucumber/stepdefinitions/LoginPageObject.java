@@ -31,4 +31,10 @@ public class LoginPageObject extends BasePageObject {
 		clickButton("Sign In");
 	}
 
+	public void logout() throws Exception {
+		click(".//span[@class='user-avatar-image']");
+		selenium.waitForVisible(".//div[contains(@class,'collapse in')]");
+		clickLink("Sign Out");
+	}
+
 }

@@ -27,6 +27,10 @@ public class LoginSteps {
         _loginPageObject.login(emailAddress, password);
     }
 
-    private LoginPageObject _loginPageObject = new LoginPageObject();
+    @When("^I logout$")
+    public void logout() throws Throwable {
+    	_loginPageObject.logout();
+    }
 
+    private LoginPageObject _loginPageObject = new LoginPageObject();
 }
