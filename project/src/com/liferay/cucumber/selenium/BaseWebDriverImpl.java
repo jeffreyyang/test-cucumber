@@ -1098,7 +1098,6 @@ public abstract class BaseWebDriverImpl implements LiferaySelenium, WebDriver {
 
 	@Override
 	public boolean isElementPresent(String locator) {
-		System.out.println("HERE IS THE LOCATORRRRRRR: " + locator);
 		return WebDriverHelper.isElementPresent(this, locator);
 	}
 

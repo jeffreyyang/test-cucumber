@@ -77,7 +77,7 @@ public class WebDriverUtil extends PropsValues {
 		firefoxProfile.setPreference("dom.max_chrome_script_run_time", 300);
 		firefoxProfile.setPreference("dom.max_script_run_time", 300);
 
-		return new FirefoxDriver(firefoxProfile);
+		return new FirefoxDriver();
 	}
 
 	private WebDriver _getWebDriver() {

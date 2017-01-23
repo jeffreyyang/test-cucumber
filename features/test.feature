@@ -1,9 +1,8 @@
 Feature: Feature 1.2
 
 	Scenario: Test1
-		When I navigate to "http://www.liferay.com/"
+		When I navigate to "https://www.liferay.com"
 		And I click the "Product" link
-		Then I stop selenium
 
 	Scenario: Test2
 		Given I have 5 cukes in my belly:

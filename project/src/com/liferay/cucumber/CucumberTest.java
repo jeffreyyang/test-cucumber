@@ -9,6 +9,8 @@ import cucumber.runtime.io.MultiLoader;
 import cucumber.runtime.io.ResourceLoader;
 import cucumber.runtime.io.ResourceLoaderClassFinder;
 
+import org.junit.AfterClass;
+
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -17,15 +19,23 @@ import static java.util.Arrays.asList;
 public class CucumberTest {
 
     public static void main(String[] args) throws Throwable {
-        SeleniumUtil.startSelenium();
+        byte exitstatus = 0;
 
-        Thread currentThread = Thread.currentThread();
+        try {
+            SeleniumUtil.startSelenium();
 
-        byte exitstatus = run(args, currentThread.getContextClassLoader());
+            Thread currentThread = Thread.currentThread();
 
-        SeleniumUtil.stopSelenium();
+            exitstatus = run(args, currentThread.getContextClassLoader());
+        }
+        catch (Exception e) {
+            throw new Exception(e);
+        }
+        finally {
+            SeleniumUtil.stopSelenium();
 
-        System.exit(exitstatus);
+            System.exit(exitstatus);
+        }
     }
 
     public static byte run(String[] args, ClassLoader classLoader)
@@ -46,4 +56,5 @@ public class CucumberTest {
 
         return runtime.exitStatus();
     }
+
 }
