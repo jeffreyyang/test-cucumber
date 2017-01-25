@@ -34,9 +34,24 @@
 				srcdir="project/src/"
 			/>
 
+			<prepare-selenium-ext-properties />
+
 			<copy todir="project/classes/">
 				<fileset dir="project/src/" includes="*.properties" />
 			</copy>
+		</sequential>
+	</macrodef>
+
+	<macrodef name="prepare-selenium-ext-properties">
+		<sequential>
+			<if>
+				<isset property="browser.firefox.bin.file" />
+				<then>
+					<echo append="true" file="project/src/selenium-ext.properties">
+						browser.firefox.bin.file=${browser.firefox.bin.file}
+					</echo>
+				</then>
+			</if>
 		</sequential>
 	</macrodef>
 
