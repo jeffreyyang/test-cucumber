@@ -14,24 +14,17 @@
 
 package com.liferay.cucumber.stepdefinitions;
 
-import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
 /**
  * @author Michael Hashimoto
  * @author Brian Chiu
  */
-public class LoginSteps {
+public class PageSteps {
+	@When("I navigate to the page named \"([^\"]*)\"$")
+	public void addWebContent(String page) throws Exception {
+		_pagePageObject.gotoPage(page);
+	}
 
-    @When("^I log in as \"([^\"]*)\" with password \"([^\"]*)\"$")
-    public void login(String emailAddress, String password) throws Exception {
-        _loginPageObject.login(emailAddress, password);
-    }
-
-    @Then("^I logout$")
-    public void logout() throws Exception {
-    	_loginPageObject.logout();
-    }
-
-    private LoginPageObject _loginPageObject = new LoginPageObject();
+	private PagePageObject _pagePageObject = new PagePageObject();
 }

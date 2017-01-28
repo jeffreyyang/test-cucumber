@@ -9,7 +9,7 @@ import cucumber.api.java.en.Given;
 public class BaseSteps {
 
     @Given("^I click the \"([^\"]*)\" button$")
-    public void clickButton(String button) throws Throwable {
+    public void clickButton(String button) throws Exception {
         _basePageObject.clickButton(button);
     }
 
