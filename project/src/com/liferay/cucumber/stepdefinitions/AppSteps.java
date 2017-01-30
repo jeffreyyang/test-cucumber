@@ -20,16 +20,11 @@ import cucumber.api.java.en.When;
  * @author Michael Hashimoto
  * @author Brian Chiu
  */
-public class PageSteps {
-	@When("I add a page named \"([^\"]*)\"$")
-	public void addPage(String pageName) throws Exception {
-		_pagePageObject.addPage(pageName);
+public class AppSteps {
+	@When("I add the \"([^\"]*)\" app$")
+	public void addPage(String appName) throws Exception {
+		_appPageObject.addApp(appName);
 	}
 
-	@When("I navigate to the page named \"([^\"]*)\"$")
-	public void gotoPage(String pageName) throws Exception {
-		_pagePageObject.gotoPage(pageName);
-	}
-
-	private PagePageObject _pagePageObject = new PagePageObject();
+	private AppPageObject _appPageObject = new AppPageObject();
 }

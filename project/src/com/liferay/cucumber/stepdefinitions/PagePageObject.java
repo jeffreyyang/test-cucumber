@@ -19,7 +19,26 @@ package com.liferay.cucumber.stepdefinitions;
  * @author Brian Chiu
  */
 public class PagePageObject extends BasePageObject {
-	public void gotoPage(String page) throws Exception {
-		clickLink(page);
+	public void addPage(String pageName) throws Exception {
+		_productMenuPageObject.expandProductMenu();
+
+		_productMenuPageObject.expandCategory("Navigation");
+
+		click(publicPageEllipsisLocator);
+
+		clickLink("Add Public Page");
+
+		typeField("Name", pageName);
+
+		clickButton("Add Page");
 	}
+
+	public void gotoPage(String pageName) throws Exception {
+		clickLink(pageName);
+	}
+
+	private ProductMenuPageObject _productMenuPageObject = new ProductMenuPageObject();
+
+	private String publicPageEllipsisLocator = "//*[@data-qa-id='publicPagesOptions']";
+
 }

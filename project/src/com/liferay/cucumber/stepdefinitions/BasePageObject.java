@@ -111,6 +111,22 @@ public class BasePageObject {
 		selenium.pause(milliseconds);
 	}
 
+	public void pauseMakeVisibleClick(String locator) throws Exception {
+		selenium.waitForElementPresent(locator);
+
+		pause("1000");
+
+		selenium.makeVisible(locator);
+
+		selenium.waitForVisible(locator);
+
+		selenium.mouseDown(locator);
+
+		pause("1000");
+
+		selenium.mouseUp(locator);
+	}
+
 	public void selectFrame(String locator) throws Exception {
 		if (locator.contains("/iframe")) {
 			selenium.waitForVisible(locator);
@@ -127,12 +143,18 @@ public class BasePageObject {
 		SeleniumUtil.stopSelenium();
 	}
 
+	public void type(String locator, String text) throws Exception {
+		selenium.waitForVisible(locator);
+
+		selenium.type(locator , text);
+	}
+
 	public void typeField(String field, String text) throws Exception {
 		String locator = "//div[label[contains(.,'" + field + "')]]//input";
 
 		selenium.waitForVisible(locator);
 
-		selenium.type(locator , text);
+		type(locator , text);
 	}
 
 	public void typeEditor(String text) throws Exception {

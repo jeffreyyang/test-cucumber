@@ -14,22 +14,22 @@
 
 package com.liferay.cucumber.stepdefinitions;
 
-import cucumber.api.java.en.When;
-
 /**
  * @author Michael Hashimoto
  * @author Brian Chiu
  */
-public class PageSteps {
-	@When("I add a page named \"([^\"]*)\"$")
-	public void addPage(String pageName) throws Exception {
-		_pagePageObject.addPage(pageName);
+public class AppPageObject extends BasePageObject {
+	public void addApp(String appName) throws Exception {
+		String addAppLocator = "//span[contains(@data-title,'" + appName + "') and contains(@class,'add-content-item')]";
+
+		String appLoadedLocator = "//div[contains(@class,'portlet-content')]/h2[contains(.,'" + appName + "')]";
+
+		_addPanelPageObject.searchApplication(appName);
+
+		pauseMakeVisibleClick(addAppLocator);
+
+		assertVisible(appLoadedLocator);
 	}
 
-	@When("I navigate to the page named \"([^\"]*)\"$")
-	public void gotoPage(String pageName) throws Exception {
-		_pagePageObject.gotoPage(pageName);
-	}
-
-	private PagePageObject _pagePageObject = new PagePageObject();
+	private AddPanelPageObject _addPanelPageObject = new AddPanelPageObject();
 }
