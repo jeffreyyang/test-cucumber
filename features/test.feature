@@ -1,5 +1,6 @@
 Feature: Feature 1.2
 
+	@lrdcom-hook
 	Scenario: Test1
 		When I navigate to "https://www.liferay.com"
 		And I click the "Product" link
